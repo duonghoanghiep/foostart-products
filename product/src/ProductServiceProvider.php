@@ -61,7 +61,7 @@ class ProductServiceProvider extends ServiceProvider {
          */
         $this->app->make('Foostart\Product\Controllers\Admin\ProductAdminController');
         $this->app->make('Foostart\Product\Controllers\Front\ProductFrontController');
-
+      $this->app->make('Foostart\Product\Controllers\User\ProductUserController');
          /**
          * Load Views
          */
@@ -94,6 +94,8 @@ class ProductServiceProvider extends ServiceProvider {
                     "icon" => '<i class="fa fa-users"></i>'
                 ],
 
+                
+                
                 /**
                  * Categories
                  */

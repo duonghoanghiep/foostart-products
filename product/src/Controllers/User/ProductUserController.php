@@ -1,49 +1,52 @@
 <?php
 
-namespace Foostart\Product\Controllers\Front;
+namespace Foostart\Product\Controllers\User;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use URL;
 use Route,
     Redirect;
 use Foostart\Product\Models\Products;
+/**
+ * Validators
+ */
 use Foostart\Product\Validators\ProductAdminValidator;
-class ProductFrontController extends Controller
-{
-     public $data_view = array();
-    private $obj_validator = NULL;
+
+class ProductUserController extends Controller {
+
+    public $data_view = array();
     private $obj_product = NULL;
-   public function __construct() {
+    private $obj_validator = NULL;
+
+    public function __construct() {
         $this->obj_product = new Products();
     }
 
-    public function index(Request $request)
-    {
-         $params = $request->all();
+    /**
+     *
+     * @return type
+     */
+    public function index(Request $request) {
+        $params = $request->all();
 
-        $obj_product = new Products();
-        $products = $this->obj_product->get_products($params);
-        
+        $list_product = $this->obj_product->get_products($params);
+
+
         $this->data_view = array_merge($this->data_view, array(
-            'products' => $products,
+            'products' => $list_product,
             'request' => $request,
             'params' => $params
         ));
-       
-      
-        return view('product::product.front.index', $this->data_view);
+        return view('product::product.user.product_list', $this->data_view);
     }
-    public function setform(Request $request) {
-        $obj_product = new Products();
-        $products = $obj_product->get_products();
-        $this->data = array(
-            'request' => $request,
-            'products' => $products
-        );
-        return view('product::product.front.index', $this->data);
-    }
+
+    /**
+     *
+     * @return type
+     */
     public function edit(Request $request) {
-        
+
         $product = NULL;
         $product_id = (int) $request->get('id');
 
@@ -55,7 +58,7 @@ class ProductFrontController extends Controller
             'product' => $product,
             'request' => $request
         ));
-        return view('product::product.front.edit', $this->data_view);
+        return view('product::product.user.product_edit', $this->data_view);
     }
 
     /**
@@ -63,7 +66,7 @@ class ProductFrontController extends Controller
      * @return type
      */
     public function post(Request $request) {
-        
+
         $this->obj_validator = new ProductAdminValidator();
 
         $input = $request->all();
@@ -93,7 +96,7 @@ class ProductFrontController extends Controller
 
                     //Message
                     \Session::flash('message', trans('product::product_admin.message_update_successfully'));
-                    return Redirect::route("product");
+                    return Redirect::route("user_product.edit", ["id" => $product->product_id]);
                 } else {
 
                     //Message
@@ -107,7 +110,7 @@ class ProductFrontController extends Controller
 
                     //Message
                     \Session::flash('message', trans('product::product_admin.message_add_successfully'));
-                    return Redirect::route("product");
+                    return Redirect::route("user_product.edit", ["id" => $product->product_id]);
                 } else {
 
                     //Message
@@ -117,13 +120,17 @@ class ProductFrontController extends Controller
         }
 
         $this->data_view = array_merge($this->data_view, array(
-            'products' => $products,
+            'product' => $product,
             'request' => $request,
                 ), $data);
 
-        return view('product::product.front.index', $this->data_view);
+        return view('product::product.user.product_edit', $this->data_view);
     }
 
+    /**
+     *
+     * @return type
+     */
     public function delete(Request $request) {
 
         $product = NULL;
@@ -146,37 +153,7 @@ class ProductFrontController extends Controller
             'product' => $product,
         ));
 
-        return Redirect::route("product");
-    }
-    public function abc(Request $request) {
-
-        $product = NULL;
-        $input = $request->all();
-        $product = $this->obj_product->add_product($input);
-        $this->data_view = array(
-            'product' => $product,
-            'request' => $request
-        );
-        //Message
-        //return Redirect::route("testimonial::testimonial.admin.testimonial_edit", ["id" => $testimonial->testimonial_id],$this->data_view);
-        return view('product::product.front.index', $this->data_view);
-        \Session::flash('work', trans('work::work_admin.message_add_successfully'));
-    }
-    
-     public function add(Request $request) {
-       // $post = null;
-        $product = new Products();
-        $product = $product->get();
-        $input = $request->all();
-        
-        
-        $product_id = $this->obj_product->add_product($input);
-        $this->data_view = array(
-            'product' => $product,
-            'request' => $request
-        );
-       
-        return Redirect::route("product");
+        return Redirect::route("user_product");
     }
 
 }

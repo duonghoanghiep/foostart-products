@@ -1,14 +1,64 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script src='//cloud.tinymce.com/stable/tinymce.min.js'></script>
+       <script src='//cloud.tinymce.com/stable/tinymce.min.js'></script>
         <script>
             tinymce.init({
-                selector: 'textarea', // change this value according to your HTML
-                plugin: 'a_tinymce_plugin',
-                a_plugin_option: true,
-                a_configuration_option: 400
-            });
+  selector: 'textarea',
+  plugins: 'image code',
+ plugins: [
+    'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+    'searchreplace wordcount visualblocks visualchars code fullscreen',
+    'insertdatetime media nonbreaking save table contextmenu directionality',
+    'emoticons template paste textcolor colorpicker textpattern imagetools codesample toc'
+  ],
+  toolbar1: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+  toolbar2: 'print preview media | forecolor backcolor emoticons | codesample',
+  image_advtab: true,
+  templates: [
+    { title: 'Test template 1', content: 'Test 1' },
+    { title: 'Test template 2', content: 'Test 2' }
+  ],
+  content_css: [
+    '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+    '//www.tinymce.com/css/codepen.min.css'
+  ],
+  toolbar: 'undo redo | link image | code',
+  // enable title field in the Image dialog
+  image_title: true, 
+  // enable automatic uploads of images represented by blob or data URIs
+  automatic_uploads: true,
+  
+ images_upload_credentials: true,
+   
+  images_upload_url: 'post.php',
+  // here we add custom filepicker only to Image dialog
+  
+  images_reuse_filename: true,
+  file_picker_types: 'image', 
+  // and here's our custom image picker
+  file_picker_callback: function(cb, value, meta) {
+    var input = document.createElement('input');
+    input.setAttribute('type', 'file');
+    input.setAttribute('accept', 'foostart/images/*');
+    
+    
+    input.onchange = function() {
+      var file = this.files[0];
+      
+    
+      var id = 'blobid' + (new Date()).getTime();
+      var blobCache = tinymce.activeEditor.editorUpload.blobCache;
+      var blobInfo = blobCache.create(id, file);
+      blobCache.add(blobInfo);
+      
+   
+      cb(blobInfo.blobUri(), { title: file.name });
+    };
+    
+    input.click();
+  }
+});
         </script>
     </head>
 
@@ -30,21 +80,21 @@
     {!! Form::textarea($title, $product_title, ['class' => 'form-control', 'placeholder' => trans('product::product_admin.title').'']) !!}
     <!-- /PRODUCT TITLE -->
      
-    <!-- PRODUCT MONEY -->
-    <?php $product_money = $request->get('product_titlename') ? $request->get('product_money') : @$product->product_money ?>
-    {!! Form::label($money, trans('product::product_admin.money').':') !!}
-    {!! Form::textarea($money, $product_money, ['class' => 'form-control', 'placeholder' => trans('product::product_admin.money').'']) !!}
-    <!-- /PRODUCT MONEY -->
+    <!-- PRODUCT COST -->
+    <?php $product_cost = $request->get('product_titlename') ? $request->get('product_cost') : @$product->product_cost ?>
+    {!! Form::label($cost, trans('product::product_admin.cost').':') !!}
+    {!! Form::textarea($cost, $product_cost, ['class' => 'form-control', 'placeholder' => trans('product::product_admin.cost').'']) !!}
+    <!-- /PRODUCT COST -->
     
-     <!-- PRODUCT DATE IMPORT -->
-    <?php $product_date_import = $request->get('product_titledes') ? $request->get('product_date_import') : @$product->product_date_import ?>
-    {!! Form::label($date_import, trans('product::product_admin.date_import').':') !!}
-    {!! Form::textarea($date_import, $product_date_import, ['class' => 'form-control', 'placeholder' => trans('product::product_admin.date_import').'']) !!}
-    <!-- /PRODUCT DATE IMPORT -->
+     <!-- PRODUCT OVERVIEW -->
+    <?php $product_overview = $request->get('product_titledes') ? $request->get('product_overview') : @$product->product_overview ?>
+    {!! Form::label($overview, trans('product::product_admin.overview').':') !!}
+    {!! Form::textarea($overview, $product_overview, ['class' => 'form-control', 'placeholder' => trans('product::product_admin.overview').'']) !!}
+    <!-- /PRODUCT OVERVIEW -->
      
-    <!-- PRODUCT DATE EXPORT -->
-    <?php $product_date_export = $request->get('product_titlename') ? $request->get('product_date_export') : @$product->product_date_export ?>
-    {!! Form::label($date_export, trans('product::product_admin.date_export').':') !!}
-    {!! Form::textarea($date_export, $product_date_export, ['class' => 'form-control', 'placeholder' => trans('product::product_admin.date_export').'']) !!}
-     <!-- /PRODUCT DATE EXPORT -->
+    <!-- PRODUCT DESCRIPTION -->RIPTION
+    <?php $product_description = $request->get('product_titlename') ? $request->get('product_description') : @$product->product_description ?>
+    {!! Form::label($description, trans('product::product_admin.description').':') !!}
+    {!! Form::textarea($description, $product_description, ['class' => 'form-control', 'placeholder' => trans('product::product_admin.description').'']) !!}
+     <!-- /PRODUCT DESCRIPTION -->
 </div>

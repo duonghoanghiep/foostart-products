@@ -29,7 +29,9 @@ return [
  'required' => 'is required',
  'search' => 'Search',
  'product_name_label' => 'Product name:',
+ 'product_id_label' => 'Product ID:',
  'product_name_placeholder' => 'product name',
+    'product_id_placeholder' => 'product ID',
  'product_category_name' => 'Product category name',
  /**
  * Message

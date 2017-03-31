@@ -62,7 +62,7 @@ Admin area: {{ trans('product::product_admin.page_edit') }}
                     <div class="row">
                         <div class="col-md-12 col-xs-12">
                             <h4>{!! trans('product::product_admin.form_heading') !!}</h4>
-                            {!! Form::open(['route'=>['admin_product.post', 'id' => @$product->product_id],  'files'=>true, 'method' => 'post'])  !!}
+                            {!! Form::open(['route'=>['user_product.post', 'id' => @$product->product_id],  'files'=>true, 'method' => 'post'])  !!}
 
 
                             <!-- PRODUCT  TEXT-->
@@ -71,7 +71,7 @@ Admin area: {{ trans('product::product_admin.page_edit') }}
                             {!! Form::hidden('id',@$product->product_id) !!}
 
                             <!-- DELETE BUTTON -->
-                            <a href="{!! URL::route('admin_product.delete',['id' => @$product->id, '_token' => csrf_token()]) !!}"
+                            <a href="{!! URL::route('user_product.delete',['id' => @$product->id, '_token' => csrf_token()]) !!}"
                                class="btn btn-danger pull-right margin-left-5 delete">
                                 Delete
                             </a>

@@ -11,9 +11,9 @@ class Products extends Model {
     protected $fillable = [
         'product_name',
         'product_title',
-        'product_money',
-        'product_date_import',
-        'product_date_export'
+        'product_cost',
+        'product_overview',
+        'product_description'
         
     ];
     protected $primaryKey = 'product_id';
@@ -30,25 +30,14 @@ class Products extends Model {
         if (!empty($params['product_name'])) {
             $eloquent->where('product_name', 'like', '%' . $params['product_name'] . '%');
         }
-        //product_title
-        if (!empty($params['product_title'])) {
-            $eloquent->where('product_title', 'like', '%' . $params['product_title'] . '%');
-        }
-        //product_money
-        if (!empty($params['product_money'])) {
-            $eloquent->where('product_money', 'like', '%' . $params['product_money'] . '%');
-        }
-        //product_date_import
-        if (!empty($params['product_date_import'])) {
-            $eloquent->where('product_date_import', 'like', '%' . $params['product_date_import'] . '%');
-        }
-        //product_date_export
-        if (!empty($params['product_date_export'])) {
-            $eloquent->where('product_date_export', 'like', '%' . $params['product_date_export'] . '%');
-        }
         
+        //product_id
+        if (!empty($params['product_id'])) {
+            $eloquent->where('product_id', 'like', '%' . $params['product_id'] . '%');
+        }
 
-        $products = $eloquent->paginate(10); //TODO: change number of item per page to configs
+
+        $products = $eloquent->paginate(3); //TODO: change number of item per page to configs
 
         return $products;
     }
@@ -71,9 +60,9 @@ class Products extends Model {
 
             $product->product_name = $input['product_name'];
             $product->product_title = $input['product_title'];
-            $product->product_money = $input['product_money'];
-            $product->product_date_import = $input['product_date_import'];
-            $product->product_date_export = $input['product_date_export'];
+            $product->product_cost = $input['product_cost'];
+            $product->product_overview = $input['product_overview'];
+            $product->product_description = $input['product_description'];
             $product->save();
 
             return $product;
@@ -92,9 +81,9 @@ class Products extends Model {
         $product = self::create([
                     'product_name' => $input['product_name'],
                     'product_title' => $input['product_title'],
-                    'product_money' => $input['product_money'],
-                    'product_date_import' => $input['product_date_import'],
-                    'product_date_export' => $input['product_date_export'],
+                    'product_cost' => $input['product_cost'],
+                    'product_overview' => $input['product_overview'],
+                    'product_description' => $input['product_description'],
                     
         ]);
         return $product;

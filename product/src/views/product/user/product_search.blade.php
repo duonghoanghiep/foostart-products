@@ -9,10 +9,11 @@
 
         <!--TITLE-->
         <div class="form-group">
-            {!! Form::label('product_name', trans('product::product_admin.product_name_label')) !!}
-            {!! Form::text('product_name', @$params['product_name'], ['class' => 'form-control', 'placeholder' => trans('product::product_admin.product_name_placeholder')]) !!}
+            {!! Form::label('product_cost', trans('product::product_admin.product_name_label')) !!}
+            {!! Form::text('product_cost', @$params['product_cost'], ['class' => 'form-control', 'placeholder' => trans('product::product_admin.product_name_placeholder')]) !!}
        
-         
+        
+        
         </div>
         <!--/END TITLE-->
 
