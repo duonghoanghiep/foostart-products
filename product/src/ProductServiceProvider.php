@@ -21,7 +21,7 @@ class ProductServiceProvider extends ServiceProvider {
          * Publish
          */
          $this->publishes([
-            __DIR__.'/config/product_admin.php' => config_path('product_admin.php'),
+            __DIR__.'/config/product.php' => config_path('product.php'),
         ],'config');
 
         $this->loadViewsFrom(__DIR__ . '/views', 'product');
@@ -31,10 +31,10 @@ class ProductServiceProvider extends ServiceProvider {
          * Translations
          */
          $this->loadTranslationsFrom(__DIR__.'/lang', 'product');
-         
+
          $this->publishes([
         __DIR__.'/public' => public_path('foostart'),
-    ], 'public'); 
+    ], 'public');
 
 
         /**
@@ -84,23 +84,23 @@ class ProductServiceProvider extends ServiceProvider {
                  * Products
                  */
                 //list
-                trans('product::product_admin.page_list') => [
+                trans('product::product.page_list') => [
                     'url' => URL::route('admin_product'),
                     "icon" => '<i class="fa fa-users"></i>'
                 ],
                 //add
-                trans('product::product_admin.'.$is_action) => [
+                trans('product::product.'.$is_action) => [
                     'url' => URL::route('admin_product.edit'),
                     "icon" => '<i class="fa fa-users"></i>'
                 ],
 
-                
-                
+
+
                 /**
                  * Categories
                  */
                 //list
-                trans('product::product_admin.page_category_list') => [
+                trans('product::product.page_category_list') => [
                     'url' => URL::route('admin_product_category'),
                     "icon" => '<i class="fa fa-users"></i>'
                 ],

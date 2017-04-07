@@ -18,7 +18,7 @@
 <div class="form-group">
     <!-- PRODUCT CATEGORY NAME -->
     <?php $product_category_name = $request->get('product_titlename') ? $request->get('product_name') : @$product->product_category_name ?>
-    {!! Form::label($name, trans('product::product_admin.name').':') !!}
-    {!! Form::textarea($name, $product_category_name, ['class' => 'form-control', 'placeholder' => trans('product::product_admin.name').'']) !!}
+    {!! Form::label($name, trans('product::product.name').':') !!}
+    {!! Form::textarea($name, $product_category_name, ['class' => 'form-control', 'placeholder' => trans('product::product.name').'']) !!}
     <!-- /PRODUCT CATEGORY NAME -->
 </div>

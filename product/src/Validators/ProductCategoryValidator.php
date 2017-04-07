@@ -6,7 +6,7 @@ use \LaravelAcl\Library\Validators\AbstractValidator;
 
 use Illuminate\Support\MessageBag as MessageBag;
 
-class ProductCategoryAdminValidator extends AbstractValidator
+class ProductCategoryValidator extends AbstractValidator
 {
     protected static $rules = array(
         'product_category_name' => 'required',

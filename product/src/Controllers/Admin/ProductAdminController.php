@@ -11,13 +11,11 @@ use Foostart\Product\Models\Products;
 /**
  * Validators
  */
-use Foostart\Product\Validators\ProductAdminValidator;
+use Foostart\Product\Validators\ProductValidator;
 
 class ProductAdminController extends Controller {
 
-    public $data_view = array();
     private $obj_product = NULL;
-    private $obj_validator = NULL;
 
     public function __construct() {
         $this->obj_product = new Products();
@@ -67,7 +65,7 @@ class ProductAdminController extends Controller {
      */
     public function post(Request $request) {
 
-        $this->obj_validator = new ProductAdminValidator();
+        $this->obj_product_validator = new ProductValidator();
 
         $input = $request->all();
 
@@ -76,7 +74,7 @@ class ProductAdminController extends Controller {
 
         $data = array();
 
-        if (!$this->obj_validator->validate($input)) {
+        if (!$this->obj_product_validator->validate($input)) {
 
             $data['errors'] = $this->obj_validator->getErrors();
 
@@ -146,7 +144,7 @@ class ProductAdminController extends Controller {
                 $product->delete();
             }
         } else {
-            
+
         }
 
         $this->data_view = array_merge($this->data_view, array(

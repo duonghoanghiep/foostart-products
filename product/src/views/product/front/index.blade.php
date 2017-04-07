@@ -208,7 +208,7 @@
         
 <div class="panel panel-info">
     <div class="panel-heading">
-        <h3 class="panel-title bariol-thin"><i class="fa fa-search"></i><?php echo trans('product::product_admin.page_search') ?></h3>
+        <h3 class="panel-title bariol-thin"><i class="fa fa-search"></i><?php echo trans('product::product.page_search') ?></h3>
     </div>
     <div class="panel-body">
         
@@ -224,14 +224,14 @@
 
         <!--TITLE-->
         <div class="form-group">
-            {!! Form::label('product_name', trans('product::product_admin.product_name_label')) !!}
-            {!! Form::text('product_name', @$params['product_name'], ['class' => 'form-control', 'placeholder' => trans('product::product_admin.product_name_placeholder')]) !!}
+            {!! Form::label('product_name', trans('product::product.product_name_label')) !!}
+            {!! Form::text('product_name', @$params['product_name'], ['class' => 'form-control', 'placeholder' => trans('product::product.product_name_placeholder')]) !!}
        
          
         </div>
         <!--/END TITLE-->
 
-        {!! Form::submit(trans('product::product_admin.search').'', ["class" => "btn btn-info pull-right"]) !!}
+        {!! Form::submit(trans('product::product.search').'', ["class" => "btn btn-info pull-right"]) !!}
         {!! Form::close() !!}
     </div>
     <div id="menu1" class="tab-pane fade">
@@ -239,14 +239,14 @@
 
         <!--TITLE-->
         <div class="form-group">
-            {!! Form::label('product_id', trans('product::product_admin.product_id_label')) !!}
-            {!! Form::text('product_id', @$params['product_id'], ['class' => 'form-control', 'placeholder' => trans('product::product_admin.product_id_placeholder')]) !!}
+            {!! Form::label('product_id', trans('product::product.product_id_label')) !!}
+            {!! Form::text('product_id', @$params['product_id'], ['class' => 'form-control', 'placeholder' => trans('product::product.product_id_placeholder')]) !!}
        
          
         </div>
         <!--/END TITLE-->
 
-        {!! Form::submit(trans('product::product_admin.search').'', ["class" => "btn btn-info pull-right"]) !!}
+        {!! Form::submit(trans('product::product.search').'', ["class" => "btn btn-info pull-right"]) !!}
         {!! Form::close() !!}
     </div>
   </div>

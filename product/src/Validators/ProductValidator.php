@@ -6,7 +6,7 @@ use \LaravelAcl\Library\Validators\AbstractValidator;
 
 use Illuminate\Support\MessageBag as MessageBag;
 
-class ProductAdminValidator extends AbstractValidator
+class ProductValidator extends AbstractValidator
 {
     protected static $rules = array(
         'product_name' => 'required',
@@ -14,7 +14,7 @@ class ProductAdminValidator extends AbstractValidator
         'product_cost' => 'required',
         'product_overview' => 'required',
         'product_description' => 'required',
-        
+
     );
 
     protected static $messages = [];
@@ -59,7 +59,7 @@ class ProductAdminValidator extends AbstractValidator
             $this->errors->add('name_unvalid_length', trans('name_unvalid_length', ['NAME_MIN_LENGTH' => $min_lenght, 'NAME_MAX_LENGTH' => $max_lenght]));
             $flag = TRUE;
         }
-        
+
         $product_title = @$input['product_title'];
 
         if ((strlen($product_title) < $min_lenght)  || ((strlen($product_title) > $max_lenght))) {

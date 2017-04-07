@@ -1,7 +1,7 @@
 @extends('laravel-authentication-acl::admin.layouts.base-2cols')
 
 @section('title')
-Admin area: {{ trans('product::product_admin.page_edit') }}
+Admin area: {{ trans('product::product.page_edit') }}
 @stop
 @section('content')
 <div class="row">
@@ -11,7 +11,7 @@ Admin area: {{ trans('product::product_admin.page_edit') }}
             <div class="panel panel-info">
                 <div class="panel-heading">
                     <h3 class="panel-title bariol-thin">
-                        {!! !empty($product->product_id) ? '<i class="fa fa-pencil"></i>'.trans('product::product_admin.form_edit') : '<i class="fa fa-users"></i>'.trans('product::product_admin.form_add') !!}
+                        {!! !empty($product->product_id) ? '<i class="fa fa-pencil"></i>'.trans('product::product.form_edit') : '<i class="fa fa-users"></i>'.trans('product::product.form_add') !!}
                     </h3>
                 </div>
 
@@ -61,7 +61,7 @@ Admin area: {{ trans('product::product_admin.page_edit') }}
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-12 col-xs-12">
-                            <h4>{!! trans('product::product_admin.form_heading') !!}</h4>
+                            <h4>{!! trans('product::product.form_heading') !!}</h4>
                             {!! Form::open(['route'=>['admin_product.post', 'id' => @$product->product_id],  'files'=>true, 'method' => 'post'])  !!}
 
 

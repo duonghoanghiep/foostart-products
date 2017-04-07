@@ -2,7 +2,7 @@
 <div class="row margin-bottom-12">
     <div class="col-md-12">
         <a href="{!! URL::route('admin_product_category.edit') !!}" class="btn btn-info pull-right">
-            <i class="fa fa-plus"></i>{{trans('product::product_admin.product_category_add_button')}}
+            <i class="fa fa-plus"></i>{{trans('product::product.product_category_add_button')}}
         </a>
     </div>
 </div>
@@ -13,19 +13,19 @@
     <thead>
         <tr>
             <td style='width:5%'>
-                {{ trans('product::product_admin.order') }}
+                {{ trans('product::product.order') }}
             </td>
 
             <th style='width:10%'>
-                {{ trans('product::product_admin.product_categoty_id') }}
+                {{ trans('product::product.product_categoty_id') }}
             </th>
 
             <th style='width:50%'>
-                {{ trans('product::product_admin.product_categoty_name') }}
+                {{ trans('product::product.product_categoty_name') }}
             </th>
 
             <th style='width:20%'>
-                {{ trans('product::product_admin.operations') }}
+                {{ trans('product::product.operations') }}
             </th>
         </tr>
     </thead>
@@ -74,7 +74,7 @@
     <!-- FIND MESSAGE -->
     <span class="text-warning">
         <h5>
-            {{ trans('product::product_admin.message_find_failed') }}
+            {{ trans('product::product.message_find_failed') }}
         </h5>
     </span>
     <!-- /END FIND MESSAGE -->

@@ -9,7 +9,7 @@ use Foostart\Product\Models\ProductsCategories;
 /**
  * Validators
  */
-use Foostart\Product\Validators\ProductCategoryAdminValidator;
+use Foostart\Product\Validators\ProductCategoryValidator;
 
 class ProductCategoryAdminController extends Controller {
 
@@ -29,7 +29,7 @@ class ProductCategoryAdminController extends Controller {
     public function index(Request $request) {
 
          $params =  $request->all();
-         
+
         $list_product_category = $this->obj_product_category->get_products_categories($params);
 
         $this->data_view = array_merge($this->data_view, array(
@@ -67,7 +67,7 @@ class ProductCategoryAdminController extends Controller {
      */
     public function post(Request $request) {
 
-        $this->obj_validator = new ProductCategoryAdminValidator();
+        $this->obj_validator = new ProductCategoryValidator();
 
         $input = $request->all();
 
