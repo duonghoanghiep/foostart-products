@@ -5,14 +5,20 @@ return [
  "package_description" => 'Product package is for initial',
  "order" => '#',
  "operations" => 'Operations',
+ "ID" => 'ID',
+ "name" => 'Name',
+ "title" => 'Title',
+ "cost" => 'Cost',
+ "overview" => 'Overview',
+ "description" => 'Description',
  'product_category_name_label' => 'Product category name:',
  /**
  * Page
  */
-'money' => 'Money',
+'cost' => 'Cost',
 'title' => 'Title',
-'date_import' => 'Date Import',
-'date_export' => 'Date Export',
+'overview' => 'Overview',
+'description' => 'Description',
 'page_list' => 'List of products',
  'page_add' => 'Add new item',
  'page_edit' => 'Update product item',

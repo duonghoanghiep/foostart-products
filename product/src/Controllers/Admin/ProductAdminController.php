@@ -11,10 +11,11 @@ use Foostart\Product\Models\Products;
 /**
  * Validators
  */
+
 use Foostart\Product\Validators\ProductValidator;
 
 class ProductAdminController extends Controller {
-
+    public $data = array();
     private $obj_product = NULL;
 
     public function __construct() {
@@ -31,12 +32,12 @@ class ProductAdminController extends Controller {
         $list_product = $this->obj_product->get_products($params);
 
 
-        $this->data_view = array_merge($this->data_view, array(
+        $this->data = array_merge($this->data, array(
             'products' => $list_product,
             'request' => $request,
             'params' => $params
         ));
-        return view('product::product.admin.product_list', $this->data_view);
+        return view('product::product.admin.product_list', $this->data);
     }
 
     /**
@@ -52,11 +53,11 @@ class ProductAdminController extends Controller {
             $product = $this->obj_product->find($product_id);
         }
 
-        $this->data_view = array_merge($this->data_view, array(
+        $this->data = array_merge($this->data, array(
             'product' => $product,
             'request' => $request
         ));
-        return view('product::product.admin.product_edit', $this->data_view);
+        return view('product::product.admin.product_edit', $this->data);
     }
 
     /**
@@ -76,7 +77,7 @@ class ProductAdminController extends Controller {
 
         if (!$this->obj_product_validator->validate($input)) {
 
-            $data['errors'] = $this->obj_validator->getErrors();
+            $data['errors'] = $this->obj_product_validator->getErrors();
 
             if (!empty($product_id) && is_int($product_id)) {
 
@@ -93,12 +94,12 @@ class ProductAdminController extends Controller {
                     $product = $this->obj_product->update_product($input);
 
                     //Message
-                    \Session::flash('message', trans('product::product_admin.message_update_successfully'));
+                    \Session::flash('message', trans('product::product.message_update_successfully'));
                     return Redirect::route("admin_product.edit", ["id" => $product->product_id]);
                 } else {
 
                     //Message
-                    \Session::flash('message', trans('product::product_admin.message_update_unsuccessfully'));
+                    \Session::flash('message', trans('product::product.message_update_unsuccessfully'));
                 }
             } else {
 
@@ -107,22 +108,22 @@ class ProductAdminController extends Controller {
                 if (!empty($product)) {
 
                     //Message
-                    \Session::flash('message', trans('product::product_admin.message_add_successfully'));
+                    \Session::flash('message', trans('product::product.message_add_successfully'));
                     return Redirect::route("admin_product.edit", ["id" => $product->product_id]);
                 } else {
 
                     //Message
-                    \Session::flash('message', trans('product::product_admin.message_add_unsuccessfully'));
+                    \Session::flash('message', trans('product::product.message_add_unsuccessfully'));
                 }
             }
         }
 
-        $this->data_view = array_merge($this->data_view, array(
+        $this->data = array_merge($this->data, array(
             'product' => $product,
             'request' => $request,
                 ), $data);
 
-        return view('product::product.admin.product_edit', $this->data_view);
+        return view('product::product.admin.product_edit', $this->data);
     }
 
     /**
@@ -139,7 +140,7 @@ class ProductAdminController extends Controller {
 
             if (!empty($product)) {
                 //Message
-                \Session::flash('message', trans('product::product_admin.message_delete_successfully'));
+                \Session::flash('message', trans('product::product.message_delete_successfully'));
 
                 $product->delete();
             }
@@ -147,7 +148,7 @@ class ProductAdminController extends Controller {
 
         }
 
-        $this->data_view = array_merge($this->data_view, array(
+        $this->data = array_merge($this->data, array(
             'product' => $product,
         ));
 

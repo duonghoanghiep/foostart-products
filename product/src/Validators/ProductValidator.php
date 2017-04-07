@@ -42,7 +42,7 @@ class ProductValidator extends AbstractValidator
 
     public function messages() {
         self::$messages = [
-            'required' => ':attribute '.trans('product::product_admin.required')
+            'required' => ':attribute '.trans('product::product.required')
         ];
     }
 
@@ -50,40 +50,25 @@ class ProductValidator extends AbstractValidator
 
         $flag = TRUE;
 
-        $min_lenght = config('product_admin.name_min_length');
-        $max_lenght = config('product_admin.name_max_length');
+        $min_lenght = config('product.length_product_name_min');
+        $max_lenght = config('product.length_product_name_max');
 
         $product_name = @$input['product_name'];
 
         if ((strlen($product_name) < $min_lenght)  || ((strlen($product_name) > $max_lenght))) {
-            $this->errors->add('name_unvalid_length', trans('name_unvalid_length', ['NAME_MIN_LENGTH' => $min_lenght, 'NAME_MAX_LENGTH' => $max_lenght]));
+            $this->errors->add('name_unvalid_length', trans('name_unvalid_length', ['LENGTH_PRODUCT_NAME_MIN' => $min_lenght, 'LENGTH_PRODUCT_NAME_MAX' => $max_lenght]));
             $flag = TRUE;
         }
 
-        $product_title = @$input['product_title'];
-
-        if ((strlen($product_title) < $min_lenght)  || ((strlen($product_title) > $max_lenght))) {
-            $this->errors->add('name_unvalid_length', trans('name_unvalid_length', ['NAME_MIN_LENGTH' => $min_lenght, 'NAME_MAX_LENGTH' => $max_lenght]));
-            $flag = TRUE;
-        }
-        $product_cost = @$input['product_cost'];
-
-        if ((strlen($product_cost) < $min_lenght)  || ((strlen($product_cost) > $max_lenght))) {
-            $this->errors->add('name_unvalid_length', trans('name_unvalid_length', ['NAME_MIN_LENGTH' => $min_lenght, 'NAME_MAX_LENGTH' => $max_lenght]));
-            $flag = TRUE;
-        }
+     
         $product_overview = @$input['product_overview'];
-
-        if ((strlen($product_overview) < $min_lenght)  || ((strlen($product_overview) > $max_lenght))) {
-            $this->errors->add('name_unvalid_length', trans('name_unvalid_length', ['NAME_MIN_LENGTH' => $min_lenght, 'NAME_MAX_LENGTH' => $max_lenght]));
+        $min_lenght1 = config('product.length_product_overview_min');
+        $max_lenght1 = config('product.length_product_overview_max');
+        if ((strlen($product_overview) < $min_lenght1)  || ((strlen($product_overview) > $max_lenght1))) {
+            $this->errors->add('name_unvalid_length', trans('name_unvalid_length', ['LENGTH_PRODUCT_OVERVIEW_MIN' => $min_lenght1, 'LENGTH_PRODUCT_OVERVIEW_MAX' => $max_lenght1]));
             $flag = TRUE;
         }
-        $product_description = @$input['product_description'];
-
-        if ((strlen($product_description) < $min_lenght)  || ((strlen($product_description) > $max_lenght))) {
-            $this->errors->add('name_unvalid_length', trans('name_unvalid_length', ['NAME_MIN_LENGTH' => $min_lenght, 'NAME_MAX_LENGTH' => $max_lenght]));
-            $flag = TRUE;
-        }
+      
 
         return $flag;
     }

@@ -4,12 +4,12 @@
     <thead>
         <tr>
             <td style='width:5%'>{{ trans('product::product.order') }}</td>
-            <th style='width:10%'>Product ID</th>
-            <th style='width:20%'>Product Name</th>
-            <th style='width:20%'>Product Title</th>
-            <th style='width:20%'>Product Cost</th>
-            <th style='width:30%'>Product Overview</th>
-            <th style='width:30%'>Product Description</th>
+            <th style='width:5%'>{{ trans('product::product.ID') }}</th>
+            <th style='width:15%'>{{ trans('product::product.name') }}</th>
+            <th style='width:15%'>{{ trans('product::product.title') }}</th>
+            <th style='width:15%'>{{ trans('product::product.cost') }}</th>
+            <th style='width:15%'>{{ trans('product::product.overview') }}</th>
+            <th style='width:15%'>{{ trans('product::product.description') }}</th>
             <th style='width:20%'>{{ trans('product::product.operations') }}</th>
         </tr>
     </thead>

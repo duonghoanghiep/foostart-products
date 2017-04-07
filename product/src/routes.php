@@ -179,33 +179,7 @@ Route::group(['middleware' => ['web'], 'namespace' => 'Foostart\Product\Controll
         ////////////////////////////////////////////////////////////////////////
         ////////////////////////////CATEGORIES///////////////////////////////
         ////////////////////////////////////////////////////////////////////////**/
-         Route::get('admin/product_category', [
-            'as' => 'admin_product_category',
-            'uses' => 'ProductCategoryAdminController@index'
-        ]);
-
-        /**
-         * edit-add
-         */
-        Route::get('admin/product_category/edit', [
-            'as' => 'admin_product_category.edit',
-            'uses' => 'ProductCategoryAdminController@edit'
-        ]);
-
-        /**
-         * post
-         */
-        Route::post('admin/product_category/edit', [
-            'as' => 'admin_product_category.post',
-            'uses' => 'ProductCategoryAdminController@post'
-        ]);
-         /**
-         * delete
-         */
-        Route::get('admin/product_category/delete', [
-            'as' => 'admin_product_category.delete',
-            'uses' => 'ProductCategoryAdminController@delete'
-        ]);
+        
         ////////////////////////////////////////////////////////////////////////
         ////////////////////////////CATEGORIES///////////////////////////////
         ////////////////////////////////////////////////////////////////////////
