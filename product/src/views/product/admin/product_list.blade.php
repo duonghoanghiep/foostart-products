@@ -1,7 +1,7 @@
 @extends('laravel-authentication-acl::admin.layouts.base-2cols')
 
 @section('title')
-Admin area: {{ trans('product::product.page_list') }}
+{{ trans('product::product.page_list') }}
 @stop
 
 @section('content')
@@ -45,7 +45,7 @@ Admin area: {{ trans('product::product.page_list') }}
 @section('footer_scripts')
 <script>
     $(".delete").click(function () {
-        return confirm("Are you sure to delete this item?");
+        return confirm("Bạn có chắc chắn xóa sản phẩm này?");
     });
 </script>
 @stop

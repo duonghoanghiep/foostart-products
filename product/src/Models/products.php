@@ -24,7 +24,7 @@ class Products extends Model {
      * @return type
      */
     public function get_products($params = array()) {
-        $eloquent = self::orderBy('product_id');
+        $eloquent = self::orderBy('product_id', 'DESC');
 
         //product_name
         if (!empty($params['product_name'])) {

@@ -36,7 +36,7 @@ class ProductCategoryValidator extends AbstractValidator
 
     public function messages() {
         self::$messages = [
-            'required' => ':attribute '.trans('product::product_admin.required')
+            'required' => ':attribute '.trans('product::product.required')
         ];
     }
 

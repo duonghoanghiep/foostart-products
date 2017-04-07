@@ -56,7 +56,7 @@ class ProductValidator extends AbstractValidator
         $product_name = @$input['product_name'];
 
         if ((strlen($product_name) < $min_lenght)  || ((strlen($product_name) > $max_lenght))) {
-            $this->errors->add('name_unvalid_length', trans('name_unvalid_length', ['LENGTH_PRODUCT_NAME_MIN' => $min_lenght, 'LENGTH_PRODUCT_NAME_MAX' => $max_lenght]));
+            $this->errors->add('name_unvalid_length', trans('product::product.name_unvalid_length', ['LENGTH_PRODUCT_NAME_MIN' => $min_lenght, 'LENGTH_PRODUCT_NAME_MAX' => $max_lenght]));
             $flag = TRUE;
         }
 

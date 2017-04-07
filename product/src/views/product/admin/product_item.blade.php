@@ -4,7 +4,7 @@
     <thead>
         <tr>
             <td style='width:5%'>{{ trans('product::product.order') }}</td>
-            <th style='width:5%'>{{ trans('product::product.ID') }}</th>
+            
             <th style='width:15%'>{{ trans('product::product.name') }}</th>
             <th style='width:15%'>{{ trans('product::product.title') }}</th>
             <th style='width:15%'>{{ trans('product::product.cost') }}</th>
@@ -25,7 +25,7 @@
                 $counter++
                 ?>
             </td>
-            <td>{!! $product->product_id !!}</td>
+           
             <td>{!! $product->product_name !!}</td>
             <td>{!! $product->product_title !!}</td>
             <td>{!! $product->product_cost !!}</td>

@@ -1,67 +1,61 @@
 <?php
 
 return [
-"package_name" => 'Product',
- "package_description" => 'Product package is for initial',
+"package_description" => 'Product package is for initial',
+"package_name" => 'Sản Phẩm',
  "order" => '#',
- "operations" => 'Operations',
+ "operations" => 'Hoạt Động',
  "ID" => 'ID',
- "name" => 'Name',
- "title" => 'Title',
- "cost" => 'Cost',
- "overview" => 'Overview',
- "description" => 'Description',
- 'product_category_name_label' => 'Product category name:',
- /**
- * Page
- */
-'cost' => 'Cost',
-'title' => 'Title',
-'overview' => 'Overview',
-'description' => 'Description',
-'page_list' => 'List of products',
- 'page_add' => 'Add new item',
- 'page_edit' => 'Update product item',
- 'page_search' => 'Product page search',
- 'page_category' => 'List categories of product',
- /**
- * Form
- */
-'form_heading' => 'General data',
- 'form_add' => 'Add new product item',
- 'form_edit' => 'Update product item',
- 'name' => 'Name',
+ "name" => 'Tên',
+ 'cost' => 'Giá',
+'title' => 'Tiêu đề',
+'overview' => 'Tổng Quan',
+'description' => 'Mô Tả',
+ 
+ /******************************************************
+ *********************** Page***************************
+ *******************************************************/
+
+'page_list' => 'Danh Sách Sản Phẩm',
+ 'page_add' => 'Thêm Sản Phẩm Mới',
+ 'page_edit' => 'Cập Nhật Sản Phẩm',
+ 'page_search' => 'Tìm Kiếm Sản Phẩm',
+ 
+ /*******************************************************
+ *********************** Form ***************************
+ ********************************************************/
+ 'form_heading' => 'Dữ Liệu',
+ 'form_add' => 'Thêm Mới Sản Phẩm',
+ 'form_edit' => 'Cập Nhật Sản Phẩm',
  'product_required_name' => 'Required name',
- 'required' => 'is required',
- 'search' => 'Search',
- 'product_name_label' => 'Product name:',
- 'product_id_label' => 'Product ID:',
- 'product_name_placeholder' => 'product name',
-    'product_id_placeholder' => 'product ID',
- 'product_category_name' => 'Product category name',
- /**
- * Message
- */
-'message_update_successfully' => 'Update product item successfully',
- 'message_add_successfully' => 'Add new product item successfully',
- 'message_delete_successfully' => 'Delete product item successfully',
- 'message_find_failed' => 'No results found.',
- /**
- * Validator message
- */
-'title_unvalid_length' => 'Unvalid lenght title. Allow from: <b>:TITLE_MIN_LENGTH</b> to <b>:TITLE_MAX_LENGTH</b>.',
- 'product_name' => 'Product name',
- /**
- * Validator message
- */
-'delete_confirm' => 'Are you sure to delete this item?',
+ 'search' => 'Tìm Kiếm',
+ 'product_name_label' => 'Tên Sản Phẩm:',
+ 'product_name_placeholder' => 'Tên Sản Phẩm',
+
+ 
+ /*******************************************************
+ ********************* Message **************************
+ ********************************************************/
+'message_update_successfully' => 'Cập Nhật Sản Phẩm Thành Công',
+ 'message_add_successfully' => 'Thêm mới Sản Phẩm Thành Công',
+ 'message_delete_successfully' => 'Xóa Sản Phẩm Thành Công',
+ 'message_find_failed' => 'Không Tìm Thấy Kết Qủa.',
+    
+ /********************************************************
+ ****************** Validator message ********************
+ *********************************************************/
+ 'product_name' => 'Tên Sản Phẩm',
+ 'name_unvalid_length' =>'Tên Không Đủ Độ Dài',
+ 'required' => 'là cần thiết',
+'delete_confirm' => 'Bạn có chắc chắn xóa sản phẩm này?',
  ////////////////////////////////////////////////////////////////////////////
 ///////////////////////////CATEGORIES///////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////
-'page_category_list' => 'Categories',
+'page_category_list' => 'Danh Sách Thể Loại',
  'product_category_add_button' => 'Add new product category',
  'product_add_button' => 'Add new product',
  'product_categoty_id' => 'Category ID',
- 'product_categoty_name' => 'Category name',
-    
+ 'product_category_name' => 'Tên Thể Loại Sản Phẩm',
+ 'page_category' => 'Danh Sách Thể Loại Sản Phẩm',
+ 'product_category_name_label' => 'Product category name:',
 ];
